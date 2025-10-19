@@ -1,15 +1,14 @@
-const skillService = require('../services/skill.service');
+const FAQService = require('../services/FAQ.service');
 const statusCodes = require('../constants/statusCodes.constant');
 
-const createSkill = async (req, res) => {
+const createFAQ = async (req, res) => {
   try {
-    const skillData = req.body;
-    const createdSkill = await skillService.createSkill(skillData);
-
+    const faqData = req.body;
+    const createdFAQ = await FAQService.createFAQ(faqData);
     return res.status(statusCodes.CREATED).json({
       success: true,
-      message: 'Skill created successfully',
-      data: createdSkill,
+      message: 'FAQ created successfully',
+      data: createdFAQ,
     });
   } catch (error) {
     return res.status(statusCodes.BAD_REQUEST).json({
@@ -19,14 +18,13 @@ const createSkill = async (req, res) => {
   }
 };
 
-const getSkills = async (req, res) => {
+const getFAQs = async (req, res) => {
   try {
-    const skills = await skillService.getSkills();
-
+    const faqs = await FAQService.getFAQs();
     return res.status(statusCodes.OK).json({
       success: true,
-      message: 'Skills fetched successfully',
-      data: skills,
+      message: 'FAQs fetched successfully',
+      data: faqs,
     });
   } catch (error) {
     return res.status(statusCodes.INTERNAL_SERVER_ERROR).json({
@@ -36,15 +34,14 @@ const getSkills = async (req, res) => {
   }
 };
 
-const getSkillById = async (req, res) => {
+const getFAQById = async (req, res) => {
   try {
     const { id } = req.params;
-    const skill = await skillService.getSkillById(id);
-
+    const faq = await FAQService.getFAQById(id);
     return res.status(statusCodes.OK).json({
       success: true,
-      message: 'Skill fetched successfully',
-      data: skill,
+      message: 'FAQ fetched successfully',
+      data: faq,
     });
   } catch (error) {
     return res.status(statusCodes.NOT_FOUND).json({
@@ -54,16 +51,15 @@ const getSkillById = async (req, res) => {
   }
 };
 
-const updateSkill = async (req, res) => {
+const updateFAQ = async (req, res) => {
   try {
     const { id } = req.params;
-    const skillData = req.body;
-    const updatedSkill = await skillService.updateSkill(id, skillData);
-
+    const faqData = req.body;
+    const updatedFAQ = await FAQService.updateFAQ(id, faqData);
     return res.status(statusCodes.OK).json({
       success: true,
-      message: 'Skill updated successfully',
-      data: updatedSkill,
+      message: 'FAQ updated successfully',
+      data: updatedFAQ,
     });
   } catch (error) {
     return res.status(statusCodes.NOT_FOUND).json({
@@ -73,15 +69,14 @@ const updateSkill = async (req, res) => {
   }
 };
 
-const deleteSkill = async (req, res) => {
+const deleteFAQ = async (req, res) => {
   try {
     const { id } = req.params;
-    const deletedSkill = await skillService.deleteSkill(id);
-
+    const deletedFAQ = await FAQService.deleteFAQ(id);
     return res.status(statusCodes.OK).json({
       success: true,
-      message: 'Skill deleted successfully',
-      data: deletedSkill,
+      message: 'FAQ deleted successfully',
+      data: deletedFAQ,
     });
   } catch (error) {
     return res.status(statusCodes.NOT_FOUND).json({
@@ -92,9 +87,9 @@ const deleteSkill = async (req, res) => {
 };
 
 module.exports = {
-  createSkill,
-  getSkills,
-  getSkillById,
-  updateSkill,
-  deleteSkill,
+  createFAQ,
+  getFAQs,
+  getFAQById,
+  updateFAQ,
+  deleteFAQ,
 };
