@@ -6,6 +6,7 @@ const env = require('./config/env');
 const appConstant = require('./constants/app.constant');
 const routes = require('./routes');
 
+
 // Import all models
 require('./models');
 
@@ -29,6 +30,7 @@ app.listen(env.PORT, () => {
   );
   console.log(`Environment: ${env.NODE_ENV}`);
 });
+
 
 app.get('/', (req, res) => {
   res.json({

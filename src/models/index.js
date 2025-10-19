@@ -4,6 +4,8 @@ const Skill = require('./skill.model');
 const Service = require('./service.model');
 const Testimonial = require('./testimonial.model');
 const FAQ = require('./FAQ.model');
+const Navbar = require('./navbar.model');
+const Footer = require('./footer.model');
 
 // Export all models
 module.exports = {
@@ -13,5 +15,7 @@ module.exports = {
   Service,
   Testimonial,
   FAQ,
+  Navbar,
+  Footer,
 };
 

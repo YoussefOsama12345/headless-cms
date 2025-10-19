@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Headless CMS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b; /* dark navy text */
+      background-color: #f0f4ff; /* light blue background */
+    }
+
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .email-header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+      padding: 40px 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .email-header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .email-header p {
+      font-size: 16px;
+      opacity: 0.95;
+    }
+
+    .email-body {
+      padding: 40px 30px;
+    }
+
+    .welcome-message {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #1e3a8a; /* deeper blue for emphasis */
+    }
+
+    .content-section {
+      margin-bottom: 30px;
+    }
+
+    .content-section h2 {
+      font-size: 20px;
+      color: #1d4ed8; /* bright blue headers */
+      margin-bottom: 15px;
+    }
+
+    .content-section p {
+      font-size: 16px;
+      color: #334155;
+      margin-bottom: 10px;
+    }
+
+    .features-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .features-list li {
+      padding: 10px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    .features-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2563eb; /* vivid blue checkmarks */
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 20px 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #e2e8f0;
+      margin: 30px 0;
+    }
+
+    .social-links {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #1e3a8a;
+    }
+
+    .email-footer {
+      background-color: #f1f5ff;
+      padding: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .email-footer p {
+      margin-bottom: 10px;
+    }
+
+    .email-footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .email-body {
+        padding: 30px 20px;
+      }
+
+      .email-header h1 {
+        font-size: 24px;
+      }
+
+      .welcome-message {
+        font-size: 16px;
+      }
+
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="email-header">
+      <h1>🎉 Welcome to Headless CMS!</h1>
+      <p>Build your website or blog easily and quickly</p>
+    </div>
+
+    <!-- Body -->
+    <div class="email-body">
+      <div class="welcome-message">
+        <strong>Hi {{userName}},</strong>
+      </div>
+
+      <p>Welcome to Headless CMS! We're thrilled to have you on board. You're now part of a community of creators who are building amazing websites and blogs with ease.</p>
+
+      <div class="content-section">
+        <h2>What's Next?</h2>
+        <p>Here's what you can do to get started:</p>
+        <ul class="features-list">
+          <li>Create your first project or blog post</li>
+          <li>Customize your profile and settings</li>
+          <li>Explore our powerful API features</li>
+          <li>Add your skills and certificates</li>
+          <li>Manage your content from anywhere</li>
+        </ul>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="{{dashboardUrl}}" class="cta-button">Go to Dashboard</a>
+      </div>
+
+      <div class="content-section">
+        <h2>Why Choose Headless CMS?</h2>
+        <p>Our platform gives you:</p>
+        <ul class="features-list">
+          <li>Full control of your content without restrictions</li>
+          <li>Ready-to-use API for easy integration</li>
+          <li>Responsive design compatible with any device</li>
+          <li>SEO-friendly to increase your visibility</li>
+          <li>Easy integration with external apps</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <p style="text-align: center; color: #475569;">
+        Need help? We're here for you! Check out our documentation or reach out to our support team.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="email-footer">
+      <p><strong>Headless CMS</strong></p>
+      <p>Build your website or blog easily and quickly</p>
+      <div class="social-links">
+        <a href="{{githubUrl}}">GitHub</a> |
+        <a href="{{linkedinUrl}}">LinkedIn</a> |
+        <a href="{{websiteUrl}}">Website</a>
+      </div>
+      <p style="margin-top: 20px; font-size: 12px;">
+        © {{currentYear}} {{authorName}}. All rights reserved.
+      </p>
+      <p style="font-size: 12px;">
+        This email was sent to {{userEmail}}.
+        <a href="{{unsubscribeUrl}}">Unsubscribe</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

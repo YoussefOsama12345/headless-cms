@@ -15,6 +15,15 @@ const env = {
   DB_PASSWORD: process.env.DB_PASSWORD,
   DB_DIALECT: process.env.DB_DIALECT,
 
+  // email
+  EMAIL_HOST: process.env.EMAIL_HOST,
+  EMAIL_PORT: process.env.EMAIL_PORT,
+  EMAIL_USER: process.env.EMAIL_USER,
+  EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
+  EMAIL_USE_TLS: process.env.EMAIL_USE_TLS,
+  EMAIL_USE_SSL: process.env.EMAIL_USE_SSL,
+
+
   // JWT
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_EXPIRE: process.env.JWT_EXPIRE,
