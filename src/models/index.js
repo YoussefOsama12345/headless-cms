@@ -1,4 +1,4 @@
-const User = require('./User.model');
+const User = require('./user.model');
 const Project = require('./Project.model');
 const Skill = require('./skill.model');
 const Service = require('./service.model');

@@ -1,4 +1,3 @@
-// src/models/User.model.js
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/database');
 const { hashPassword } = require('../utils/hash');
@@ -25,8 +24,8 @@ const User = sequelize.define(
           msg: 'Name is required',
         },
         len: {
-          args: [3, 50],
-          msg: 'Name must be between 3 and 50 characters',
+          args: [2, 100],
+          msg: 'Name must be between 2 and 100 characters',
         },
       },
     },
@@ -53,39 +52,152 @@ const User = sequelize.define(
 
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true, // Allow null for social auth users
       validate: {
-        notNull: { msg: 'Password is required' },
-        notEmpty: { msg: 'Password is required' },
         len: {
-          args: [8, 50],
-          msg: 'Password must be between 8 and 50 characters'
-        },
-        is: {
-          args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/,
-          msg: 'Password must include uppercase, lowercase, number, and special character',
-        },
+          args: [8, 255],
+          msg: 'Password must be at least 8 characters'
+        }
       },
     },
 
     role: {
       type: DataTypes.STRING,
-      defaultValue: 'admin',
+      defaultValue: 'user',
+      validate: {
+        isIn: {
+          args: [['admin', 'editor', 'user']],
+          msg: 'Role must be admin, editor, or user',
+        },
+      },
+    },
+
+    emailVerified: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+
+    emailVerificationOtp: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    emailVerificationOtpExpiresAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    resetPasswordOtp: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    otpExpiresAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+
+    lastLogin: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    failedLoginAttempts: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
+
+    lockedUntil: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    // Social Authentication Fields
+    googleId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+
+    facebookId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+
+    githubId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+
+    linkedinId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true,
+    },
+
+    avatar: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+
+    provider: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isIn: {
+          args: [['local', 'google', 'facebook', 'github', 'linkedin']],
+          msg: 'Provider must be email, google, facebook, github, or linkedin'
+        },
+      },
+    },
+
+    // Token Management
+    refreshToken: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+
+    refreshTokenExpiresAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    lastLogout: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+
+    deletedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
   },
   {
-    timestamps: true, // Sequelize will handle createdAt & updatedAt
+    timestamps: true,
     tableName: 'users',
+    paranoid: true, // Enable soft delete
   }
 );
 
-
+// Hash password before creating user
 User.beforeCreate(async (user) => {
-  user.password = await hashPassword(user.password);
+  // Only hash password if it exists (social auth users might not have passwords)
+  if (user.password) {
+    user.password = await hashPassword(user.password);
+  }
 });
 
+// Hash password before updating user
 User.beforeUpdate(async (user) => {
-  if (user.changed('password')) {
+  // Only hash password if it changed and exists
+  if (user.changed('password') && user.password) {
     user.password = await hashPassword(user.password);
   }
 });

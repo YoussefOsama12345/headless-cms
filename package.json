@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
@@ -28,14 +29,21 @@
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^7.0.9",
     "nodemon": "^3.1.10",
+    "passport": "^0.7.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-oauth2": "^1.7.0",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
+    "sanitize-html": "^2.17.0",
     "sequelize": "^6.37.5",
     "winston": "^3.18.3"
   },
   "devDependencies": {
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2"

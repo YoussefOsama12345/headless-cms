@@ -14,160 +14,190 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       line-height: 1.6;
-      color: #1e293b; /* dark navy text */
-      background-color: #f0f4ff; /* light blue background */
+      color: #1e293b;
+      background-color: #f8fafc;
     }
 
     .email-container {
       max-width: 600px;
       margin: 0 auto;
       background-color: #ffffff;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .email-header {
       background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-      padding: 40px 20px;
+      padding: 40px 30px;
       text-align: center;
       color: #ffffff;
     }
 
     .email-header h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .email-header p {
       font-size: 16px;
-      opacity: 0.95;
+      opacity: 0.9;
     }
 
     .email-body {
       padding: 40px 30px;
     }
 
-    .welcome-message {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #1e3a8a; /* deeper blue for emphasis */
-    }
-
-    .content-section {
+    .welcome-section {
+      text-align: center;
       margin-bottom: 30px;
     }
 
-    .content-section h2 {
+    .welcome-title {
       font-size: 20px;
-      color: #1d4ed8; /* bright blue headers */
+      font-weight: 600;
+      color: #1e40af;
       margin-bottom: 15px;
     }
 
-    .content-section p {
+    .welcome-message {
       font-size: 16px;
-      color: #334155;
-      margin-bottom: 10px;
-    }
-
-    .features-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .features-list li {
-      padding: 10px 0;
-      padding-left: 30px;
-      position: relative;
-      font-size: 15px;
       color: #475569;
+      margin-bottom: 30px;
     }
 
-    .features-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #2563eb; /* vivid blue checkmarks */
-      font-weight: bold;
-      font-size: 18px;
+    .user-info {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .user-info h3 {
+      color: #1e40af;
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-label {
+      font-weight: 500;
+      color: #374151;
+    }
+
+    .info-value {
+      color: #6b7280;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 30px 0;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 15px 40px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #ffffff;
+      background: #3b82f6;
+      color: white;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 16px;
-      margin: 20px 0;
-      transition: transform 0.2s, background 0.2s;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 14px;
     }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
-    }
-
-    .divider {
-      height: 1px;
-      background-color: #e2e8f0;
+    .features {
       margin: 30px 0;
     }
 
-    .social-links {
-      text-align: center;
-      padding: 20px 0;
+    .features h3 {
+      color: #1e40af;
+      font-size: 16px;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
 
-    .social-links a {
-      display: inline-block;
-      margin: 0 10px;
-      color: #2563eb;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
+    .feature-list {
+      list-style: none;
+      padding: 0;
     }
 
-    .social-links a:hover {
-      color: #1e3a8a;
-    }
-
-    .email-footer {
-      background-color: #f1f5ff;
-      padding: 30px;
-      text-align: center;
+    .feature-list li {
+      margin-bottom: 8px;
       font-size: 14px;
       color: #475569;
     }
 
-    .email-footer p {
-      margin-bottom: 10px;
+    .support-section {
+      background-color: #f8fafc;
+      border-left: 3px solid #3b82f6;
+      padding: 20px;
+      margin: 30px 0;
     }
 
-    .email-footer a {
-      color: #2563eb;
+    .support-section h3 {
+      color: #1e40af;
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .support-section p {
+      color: #475569;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .support-link {
+      color: #3b82f6;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .email-footer {
+      background-color: #f8fafc;
+      padding: 20px 30px;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .footer-text {
+      color: #6b7280;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .unsubscribe {
+      color: #9ca3af;
+      font-size: 11px;
       text-decoration: none;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
+      .email-container {
+        margin: 0;
+        border-radius: 0;
+      }
+
       .email-body {
         padding: 30px 20px;
       }
 
-      .email-header h1 {
-        font-size: 24px;
-      }
-
-      .welcome-message {
-        font-size: 16px;
-      }
-
-      .cta-button {
-        padding: 12px 30px;
-        font-size: 14px;
+      .email-header {
+        padding: 30px 20px;
       }
     }
   </style>
@@ -176,69 +206,72 @@
   <div class="email-container">
     <!-- Header -->
     <div class="email-header">
-      <h1>🎉 Welcome to Headless CMS!</h1>
-      <p>Build your website or blog easily and quickly</p>
+      <h1>Welcome to Headless CMS</h1>
+      <p>Your account has been successfully created</p>
     </div>
 
     <!-- Body -->
     <div class="email-body">
-      <div class="welcome-message">
-        <strong>Hi {{userName}},</strong>
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <h2 class="welcome-title">Hello {{userName}}!</h2>
+        <p class="welcome-message">
+          Thank you for joining Headless CMS. We're excited to have you on board.
+        </p>
       </div>
 
-      <p>Welcome to Headless CMS! We're thrilled to have you on board. You're now part of a community of creators who are building amazing websites and blogs with ease.</p>
+      <!-- User Info -->
+      <div class="user-info">
+        <h3>Account Information</h3>
+        <div class="info-item">
+          <span class="info-label">Name:</span>
+          <span class="info-value">{{userName}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email:</span>
+          <span class="info-value">{{userEmail}}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Status:</span>
+          <span class="info-value">Active</span>
+        </div>
+      </div>
 
-      <div class="content-section">
-        <h2>What's Next?</h2>
-        <p>Here's what you can do to get started:</p>
-        <ul class="features-list">
-          <li>Create your first project or blog post</li>
-          <li>Customize your profile and settings</li>
-          <li>Explore our powerful API features</li>
-          <li>Add your skills and certificates</li>
-          <li>Manage your content from anywhere</li>
+      <!-- CTA Button -->
+      <div class="cta-section">
+        <a href="{{dashboardUrl}}" class="cta-button">
+          Access Dashboard
+        </a>
+      </div>
+
+      <!-- Features -->
+      <div class="features">
+        <h3>What you can do:</h3>
+        <ul class="feature-list">
+          <li>• Create and manage content</li>
+          <li>• Upload and organize media files</li>
+          <li>• Customize your content structure</li>
+          <li>• Use API for integrations</li>
         </ul>
       </div>
 
-      <div style="text-align: center;">
-        <a href="{{dashboardUrl}}" class="cta-button">Go to Dashboard</a>
+      <!-- Support Section -->
+      <div class="support-section">
+        <h3>Need Help?</h3>
+        <p>If you have any questions, please don't hesitate to contact us.</p>
+        <a href="{{supportUrl}}" class="support-link">Contact Support</a>
       </div>
-
-      <div class="content-section">
-        <h2>Why Choose Headless CMS?</h2>
-        <p>Our platform gives you:</p>
-        <ul class="features-list">
-          <li>Full control of your content without restrictions</li>
-          <li>Ready-to-use API for easy integration</li>
-          <li>Responsive design compatible with any device</li>
-          <li>SEO-friendly to increase your visibility</li>
-          <li>Easy integration with external apps</li>
-        </ul>
-      </div>
-
-      <div class="divider"></div>
-
-      <p style="text-align: center; color: #475569;">
-        Need help? We're here for you! Check out our documentation or reach out to our support team.
-      </p>
     </div>
 
     <!-- Footer -->
     <div class="email-footer">
-      <p><strong>Headless CMS</strong></p>
-      <p>Build your website or blog easily and quickly</p>
-      <div class="social-links">
-        <a href="{{githubUrl}}">GitHub</a> |
-        <a href="{{linkedinUrl}}">LinkedIn</a> |
-        <a href="{{websiteUrl}}">Website</a>
-      </div>
-      <p style="margin-top: 20px; font-size: 12px;">
-        © {{currentYear}} {{authorName}}. All rights reserved.
+      <p class="footer-text">
+        <strong>{{authorName}}</strong> - Headless CMS
       </p>
-      <p style="font-size: 12px;">
-        This email was sent to {{userEmail}}.
-        <a href="{{unsubscribeUrl}}">Unsubscribe</a>
+      <p class="footer-text">
+        © {{currentYear}} All rights reserved.
       </p>
+      <a href="{{unsubscribeUrl}}" class="unsubscribe">Unsubscribe</a>
     </div>
   </div>
 </body>

@@ -4,13 +4,14 @@ const {
   validateCreateService,
   validateUpdateService,
 } = require('../validators/service.validator');
+const { verifyToken, authorize } = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
-router.post('/', validateCreateService, serviceController.createService);
+router.post('/', verifyToken, authorize('admin'), validateCreateService, serviceController.createService);
 router.get('/', serviceController.getServices);
 router.get('/:id', serviceController.getServiceById);
-router.put('/:id', validateUpdateService, serviceController.updateService);
-router.delete('/:id', serviceController.deleteService);
+router.put('/:id', verifyToken, authorize('admin'), validateUpdateService, serviceController.updateService);
+router.delete('/:id', verifyToken, authorize('admin'), serviceController.deleteService);
 
 module.exports = router;
